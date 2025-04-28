@@ -1,5 +1,5 @@
 const AWS = requiere('aws-sdk')
-const db = rnew AWS.DynamoDB.DocumentClient()
+const db = new AWS.DynamoDB.DocumentClient()
 
 const deleteReminder = async (event) => {
   try {
@@ -23,7 +23,7 @@ const deleteReminder = async (event) => {
       statusCode: 204,
       body: ''
     }
-    
+
   }catch (err) {
     console.error('Error deleting reminder:', err)
     return {

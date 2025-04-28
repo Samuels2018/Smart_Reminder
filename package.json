@@ -2,8 +2,12 @@
   "name": "smart-reminder",
   "version": "1.0.0",
   "description": "",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.585.0",
     "@aws-sdk/lib-dynamodb": "^3.585.0",
     "express": "^4.19.2",
     "serverless": "^4.14.1",
@@ -11,6 +15,10 @@
     "serverless-offline": "^14.4.0"
   },
   "devDependencies": {
+    "@aws-sdk/client-dynamodb": "^3.798.0",
+    "@aws-sdk/util-dynamodb": "^3.798.0",
+    "aws-sdk-client-mock": "^4.1.0",
+    "jest": "^29.7.0",
     "serverless-dynamodb-local": "^0.2.40"
   }
 }

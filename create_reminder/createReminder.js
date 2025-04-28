@@ -1,20 +1,19 @@
 const AWS = require('aws-sdk')
 const { v4: uuidv4 } = require('uuid')
-const db = require('../helpers/db')
 const sendNotification = require('../helpers/notification')
 
-/*
- * OFFLINE = process.env.OFFLINE
-if (OFFLINE) {
-  AWS.config.update({
-    region: 'localhost',
-    endpoint: 'http://localhost:8000'
-  })
-}
- */
-
-
 const createReminder = async (event) => {
+  const db = new AWS.DynamoDB.DocumentClient()
+
+  OFFLINE = process.env.OFFLINE
+  if (OFFLINE) {
+    AWS.config.update({
+      region: 'localhost',
+      endpoint: 'http://localhost:8000'
+    })
+  }
+
+
   try{
     const {userId} = event.requestContext.authorizer.claims
     const data  = JSON.parse(event.body)
